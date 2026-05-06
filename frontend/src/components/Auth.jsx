@@ -14,7 +14,7 @@ const Auth = () => {
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     
     try {
-      const response = await axios.post(`http://localhost:3000${endpoint}`, {
+      const response = await axios.post(`https://cyber-arena-server.onrender.com${endpoint}`, {
         username,
         password
       });

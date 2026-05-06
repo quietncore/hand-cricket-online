@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const claimReward = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/game/daily-reward', {}, getConfig());
+      const res = await axios.post('https://cyber-arena-server.onrender.com/api/game/daily-reward', {}, getConfig());
       setMessage(`Success: ${res.data.message}`);
       setStats(prev => ({ ...prev, coins: res.data.newCoinBalance }));
     } catch (err) {
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   const createRoom = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/game/create-room', {}, getConfig());
+      const res = await axios.post('https://cyber-arena-server.onrender.com/api/game/create-room', {}, getConfig());
       // Teleport Host to Arena
       navigate(`/arena/${res.data.roomCode}`); 
     } catch (err) {
@@ -40,7 +40,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const res = await axios.post('http://localhost:3000/api/game/join-room', { roomCode }, getConfig());
+      const res = await axios.post('https://cyber-arena-server.onrender.com/api/game/join-room', { roomCode }, getConfig());
       // Teleport Guest to Arena
       navigate(`/arena/${res.data.roomCode}`);
     } catch (err) {

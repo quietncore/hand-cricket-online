@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 // Initialize socket outside component to prevent multiple connections
-const socket = io('http://localhost:3000', { autoConnect: false });
+const socket = io('https://cyber-arena-server.onrender.com', { autoConnect: false });
 
 const Arena = () => {
   const { roomCode } = useParams();
