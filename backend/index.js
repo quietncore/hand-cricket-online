@@ -5,6 +5,13 @@ const http = require('http');           // NEW: Core Node HTTP module
 const { Server } = require('socket.io'); // NEW: The Socket engine
 
 const app = express();
+// Security Override: Allow Vercel frontend to talk to this server
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
 const cors = require('cors');
 app.use(cors());
 const server = http.createServer(app);  // NEW: Wrap Express in HTTP
