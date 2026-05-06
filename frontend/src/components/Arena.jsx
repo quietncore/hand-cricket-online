@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
+const socket = io("https://cyber-arena-server.onrender.com");
 
 // Initialize socket outside component to prevent multiple connections
-const socket = io("https://cyber-arena-server.onrender.com");
 
 const Arena = () => {
   const { roomCode } = useParams();
@@ -154,5 +154,6 @@ const Arena = () => {
 };
 
 export default Arena;
+
 
 
