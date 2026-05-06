@@ -5,6 +5,8 @@ const http = require('http');           // NEW: Core Node HTTP module
 const { Server } = require('socket.io'); // NEW: The Socket engine
 
 const app = express();
+const cors = require('cors');
+app.use(cors());
 const server = http.createServer(app);  // NEW: Wrap Express in HTTP
 const io = new Server(server, {         // NEW: Initialize Socket.io
   cors: { origin: "*" }                 // Allows your future React frontend to connect securely
