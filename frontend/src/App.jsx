@@ -87,7 +87,7 @@ function App() {
     setDeviceId(savedDevice);
 
     if (savedUser) {
-      const newSocket = io('http://localhost:3001');
+      const newSocket = io('http://');
       initializeSocketListeners(newSocket);
       newSocket.emit('authenticate', { deviceId: savedDevice, username: savedUser });
       setSocket(newSocket);
@@ -106,7 +106,7 @@ function App() {
   const handleCreateProfile = () => {
     if (usernameInput.trim().length < 3) return setError('Callsign requires 3 characters.');
     localStorage.setItem('cyber_username', usernameInput.trim());
-    const newSocket = io('http://localhost:3001'); initializeSocketListeners(newSocket);
+    const newSocket = io('[https://cyber-arena-server.onrender.com](https://cyber-arena-server.onrender.com)'); initializeSocketListeners(newSocket);
     newSocket.emit('authenticate', { deviceId: deviceId, username: usernameInput.trim() });
     setSocket(newSocket); setError('');
   };
